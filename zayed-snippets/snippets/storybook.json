@@ -1,0 +1,204 @@
+{
+  "Story Import": {
+    "prefix": "rsb.import",
+    "body": [
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
+      "import { ${1:Component} } from \"./${1:Component}\";",
+      ""
+    ],
+    "description": "Import Storybook types"
+  },
+
+  "Meta Export": {
+    "prefix": "rsb.meta",
+    "body": [
+      "const meta: Meta<typeof ${1:Component}> = {",
+      "  title: \"${2:Category}/${1:Component}\",",
+      "  component: ${1:Component},",
+      "  parameters: {",
+      "    layout: \"centered\",",
+      "  },",
+      "  tags: [\"autodocs\"],",
+      "  argTypes: {",
+      "    ${3:prop}: { control: \"text\" },",
+      "  },",
+      "};",
+      "",
+      "export default meta;"
+    ],
+    "description": "Storybook meta export"
+  },
+
+  "Story Template": {
+    "prefix": "rsb.story",
+    "body": [
+      "type Story = StoryObj<typeof meta>;",
+      "",
+      "export const ${1:Default}: Story = {",
+      "  args: {",
+      "    $0",
+      "  },",
+      "};"
+    ],
+    "description": "Story template"
+  },
+
+  "Full Story File": {
+    "prefix": "rsb.full",
+    "body": [
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
+      "import { ${1:Component} } from \"./${1:Component}\";",
+      "",
+      "const meta: Meta<typeof ${1:Component}> = {",
+      "  title: \"${2:Components}/${1:Component}\",",
+      "  component: ${1:Component},",
+      "  parameters: {",
+      "    layout: \"centered\",",
+      "  },",
+      "  tags: [\"autodocs\"],",
+      "};",
+      "",
+      "export default meta;",
+      "type Story = StoryObj<typeof meta>;",
+      "",
+      "export const ${3:Default}: Story = {",
+      "  args: {",
+      "    $0",
+      "  },",
+      "};",
+      "",
+      "export const ${4:Variant}: Story = {",
+      "  args: {",
+      "    ...${3:Default}.args,",
+      "  },",
+      "};"
+    ],
+    "description": "Complete story file"
+  },
+
+  "Story Variant": {
+    "prefix": "rsb.variant",
+    "body": [
+      "export const ${1:Variant}: Story = {",
+      "  args: {",
+      "    ...${2:Default}.args,",
+      "    ${3:prop}: ${4:value},",
+      "  },",
+      "};"
+    ],
+    "description": "Story variant"
+  },
+
+  "Story With Decorator": {
+    "prefix": "rsb.decorator",
+    "body": [
+      "export const ${1:WithDecorator}: Story = {",
+      "  decorators: [",
+      "    (Story) => (",
+      "      <div className=\"${2:p-4}\">",
+      "        <Story />",
+      "      </div>",
+      "    ),",
+      "  ],",
+      "};"
+    ],
+    "description": "Story with decorator"
+  },
+
+  "Story With Parameters": {
+    "prefix": "rsb.params",
+    "body": [
+      "export const ${1:WithParams}: Story = {",
+      "  parameters: {",
+      "    backgrounds: {",
+      "      default: \"${2:dark}\",",
+      "    },",
+      "  },",
+      "};"
+    ],
+    "description": "Story with parameters"
+  },
+
+  "Story Play Function": {
+    "prefix": "rsb.play",
+    "body": [
+      "import { within, userEvent } from \"@storybook/testing-library\";",
+      "",
+      "export const ${1:Interactive}: Story = {",
+      "  play: async ({ canvasElement }) => {",
+      "    const canvas = within(canvasElement);",
+      "    $0",
+      "  },",
+      "};"
+    ],
+    "description": "Interactive story with play function"
+  },
+
+  "Story Loaders": {
+    "prefix": "rsb.loader",
+    "body": [
+      "export const ${1:WithData}: Story = {",
+      "  loaders: [",
+      "    async () => ({",
+      "      data: await (await fetch(\"${2:/api}\")).json(),",
+      "    }),",
+      "  ],",
+      "};"
+    ],
+    "description": "Story with data loader"
+  },
+
+  "Arg Types": {
+    "prefix": "rsb.argtypes",
+    "body": [
+      "argTypes: {",
+      "  ${1:prop}: {",
+      "    control: \"${2|text,boolean,number,select,color,date|}\",",
+      "    description: \"${3:Description}\",",
+      "  },",
+      "}"
+    ],
+    "description": "ArgTypes configuration"
+  },
+
+  "Story Render": {
+    "prefix": "rsb.render",
+    "body": [
+      "render: (args) => (",
+      "  <${1:Component} {...args} />",
+      "),"
+    ],
+    "description": "Custom render function"
+  },
+
+  "Mock Data": {
+    "prefix": "rsb.mock",
+    "body": [
+      "const ${1:mockData} = {",
+      "  ${2:items}: [",
+      "    { id: 1, name: \"${3:Item 1}\" },",
+      "    { id: 2, name: \"${4:Item 2}\" },",
+      "  ],",
+      "};"
+    ],
+    "description": "Mock data for stories"
+  },
+
+  "Story CSF2": {
+    "prefix": "rsb.csf2",
+    "body": [
+      "export default {",
+      "  title: \"${1:Component}\",",
+      "  component: ${1:Component},",
+      "};",
+      "",
+      "const Template = (args) => <${1:Component} {...args} />;",
+      "",
+      "export const ${2:Default} = Template.bind({});",
+      "${2:Default}.args = {",
+      "  $0",
+      "};"
+    ],
+    "description": "CSF2 story format"
+  }
+}

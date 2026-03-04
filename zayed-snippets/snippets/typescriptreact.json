@@ -1,0 +1,119 @@
+{
+  "Console Log": {
+    "prefix": "ts.log",
+    "body": ["console.log(${1:value});"],
+    "description": "Log a value to console"
+  },
+
+  "Arrow Function": {
+    "prefix": "ts.arrow",
+    "body": [
+      "const ${1:functionName} = (${2:parameters}): ${3:void} => {",
+      "  $0",
+      "};"
+    ],
+    "description": "Create arrow function"
+  },
+
+  "Async Arrow Function": {
+    "prefix": "ts.async",
+    "body": [
+      "const ${1:functionName} = async (${2:parameters}): Promise<${3:void}> => {",
+      "  try {",
+      "    $0",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "    throw error;",
+      "  }",
+      "};"
+    ],
+    "description": "Create async arrow function with try-catch"
+  },
+
+  "Try Catch Block": {
+    "prefix": "ts.try",
+    "body": [
+      "try {",
+      "  $0",
+      "} catch (error) {",
+      "  console.error(error);",
+      "}"
+    ],
+    "description": "Insert try-catch block"
+  },
+
+  "Interface": {
+    "prefix": "ts.interface",
+    "body": [
+      "interface ${1:InterfaceName} {",
+      "  ${2:property}: ${3:string};",
+      "}"
+    ],
+    "description": "Create TypeScript interface"
+  },
+
+  "Type Alias": {
+    "prefix": "ts.type",
+    "body": [
+      "type ${1:TypeName} = {",
+      "  ${2:property}: ${3:string};",
+      "};"
+    ],
+    "description": "Create TypeScript type alias"
+  },
+
+  "Enum": {
+    "prefix": "ts.enum",
+    "body": [
+      "enum ${1:EnumName} {",
+      "  ${2:ValueOne} = \"${2:ValueOne}\",",
+      "  ${3:ValueTwo} = \"${3:ValueTwo}\"",
+      "}"
+    ],
+    "description": "Create TypeScript enum"
+  },
+
+  "Function": {
+    "prefix": "ts.func",
+    "body": [
+      "function ${1:functionName}(${2:parameters}): ${3:returnType} {",
+      "  $0",
+      "}"
+    ],
+    "description": "Create typed function"
+  },
+
+  "Generic Function": {
+    "prefix": "ts.generic",
+    "body": [
+      "function ${1:functionName}<T>(${2:parameters}): T {",
+      "  $0",
+      "}"
+    ],
+    "description": "Create generic function"
+  },
+
+  "Class": {
+    "prefix": "ts.class",
+    "body": [
+      "class ${1:ClassName} {",
+      "  constructor(${2:params}) {",
+      "    $0",
+      "  }",
+      "}"
+    ],
+    "description": "Create TypeScript class"
+  },
+
+  "Export Default": {
+    "prefix": "ts.export",
+    "body": ["export default ${1:name};"],
+    "description": "Export default statement"
+  },
+
+  "Import Type": {
+    "prefix": "ts.import",
+    "body": ["import type { ${1:Type} } from \"${2:path}\";"],
+    "description": "Import type statement"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "Yup Import": {
+    "prefix": "yp.import",
+    "body": ["import * as Yup from \"yup\";"],
+    "description": "Import Yup"
+  },
+
+  "Validation Schema": {
+    "prefix": "yp.schema",
+    "body": [
+      "const ${1:validationSchema} = Yup.object({",
+      "  ${2:field}: Yup.string().required(\"${3:Required}\"),",
+      "});"
+    ],
+    "description": "Yup validation schema"
+  },
+
+  "String Required": {
+    "prefix": "yp.string",
+    "body": ["Yup.string().required(\"${1:Required}\")"],
+    "description": "Required string"
+  },
+
+  "String Email": {
+    "prefix": "yp.email",
+    "body": ["Yup.string().email(\"${1:Invalid email}\").required(\"${2:Required}\")"],
+    "description": "Email validation"
+  },
+
+  "String Min": {
+    "prefix": "yp.min",
+    "body": ["Yup.string().min(${1:3}, \"${2:Too short}\").required(\"${3:Required}\")"],
+    "description": "String with min length"
+  },
+
+  "String Max": {
+    "prefix": "yp.max",
+    "body": ["Yup.string().max(${1:50}, \"${2:Too long}\").required(\"${3:Required}\")"],
+    "description": "String with max length"
+  },
+
+  "String Matches": {
+    "prefix": "yp.matches",
+    "body": ["Yup.string().matches(/${1:regex}/, \"${2:Invalid format}\")"],
+    "description": "String regex match"
+  },
+
+  "Number": {
+    "prefix": "yp.number",
+    "body": ["Yup.number().required(\"${1:Required}\")"],
+    "description": "Number validation"
+  },
+
+  "Number Min Max": {
+    "prefix": "yp.range",
+    "body": ["Yup.number().min(${1:0}).max(${2:100}).required(\"${3:Required}\")"],
+    "description": "Number range"
+  },
+
+  "Boolean": {
+    "prefix": "yp.bool",
+    "body": ["Yup.boolean().required(\"${1:Required}\")"],
+    "description": "Boolean validation"
+  },
+
+  "Date": {
+    "prefix": "yp.date",
+    "body": ["Yup.date().required(\"${1:Required}\")"],
+    "description": "Date validation"
+  },
+
+  "Array": {
+    "prefix": "yp.array",
+    "body": ["Yup.array().of(${1:Yup.string()}).required(\"${2:Required}\")"],
+    "description": "Array validation"
+  },
+
+  "Array Min": {
+    "prefix": "yp.arraymin",
+    "body": ["Yup.array().min(${1:1}, \"${2:At least one item required}\")"],
+    "description": "Array min length"
+  },
+
+  "Object": {
+    "prefix": "yp.object",
+    "body": ["Yup.object().shape({$0}).required(\"${1:Required}\")"],
+    "description": "Object shape"
+  },
+
+  "One Of": {
+    "prefix": "yp.oneof",
+    "body": ["Yup.mixed().oneOf([${1:\"option1\"}, ${2:\"option2\"}]).required(\"${3:Required}\")"],
+    "description": "Enum validation"
+  },
+
+  "Confirm Password": {
+    "prefix": "yp.confirm",
+    "body": [
+      "${1:confirmPassword}: Yup.string()",
+      "  .oneOf([Yup.ref(\"${2:password}\"), null], \"Passwords must match\")",
+      "  .required(\"${3:Confirm password is required}\")"
+    ],
+    "description": "Password confirmation"
+  },
+
+  "Test Custom": {
+    "prefix": "yp.test",
+    "body": [
+      ".test(\"${1:test-name}\", \"${2:Error message}\", (value) => {",
+      "  return ${3:validation logic};",
+      "})"
+    ],
+    "description": "Custom test validation"
+  },
+
+  "Transform": {
+    "prefix": "yp.transform",
+    "body": [".transform((value) => value ? value.trim() : value)"],
+    "description": "Transform value"
+  },
+
+  "When Conditional": {
+    "prefix": "yp.when",
+    "body": [
+      "${1:field}: Yup.string().when(\"${2:otherField}\", {",
+      "  is: ${3:true},",
+      "  then: (schema) => schema.required(\"${4:Required}\"),",
+      "  otherwise: (schema) => schema.optional(),",
+      "})"
+    ],
+    "description": "Conditional validation"
+  },
+
+  "Lazy Schema": {
+    "prefix": "yp.lazy",
+    "body": [
+      "const ${1:schema} = Yup.lazy((values) =>",
+      "  Yup.object({",
+      "    ${2:field}: Yup.string(),",
+      "  })",
+      ");"
+    ],
+    "description": "Lazy schema definition"
+  }
+}

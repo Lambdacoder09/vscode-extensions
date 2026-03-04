@@ -1,0 +1,125 @@
+{
+  "Import Router Hooks": {
+    "prefix": "rr.imports",
+    "body": [
+      "import { useNavigate, useLocation, useParams, Link } from \"react-router-dom\";"
+    ],
+    "description": "Import common router hooks"
+  },
+
+  "Link": {
+    "prefix": "rr.link",
+    "body": [
+      "<Link to=\"${1:/path}\" className=\"${2}\">",
+      "  $0",
+      "</Link>"
+    ],
+    "description": "React Router Link"
+  },
+
+  "Navigate": {
+    "prefix": "rr.navigate",
+    "body": [
+      "const navigate = useNavigate();",
+      "",
+      "navigate(\"${1:/path}\");"
+    ],
+    "description": "Navigate programmatically"
+  },
+
+  "Use Params": {
+    "prefix": "rr.params",
+    "body": [
+      "const { ${1:id} } = useParams<{ ${1:id}: string }>();"
+    ],
+    "description": "Get URL parameters"
+  },
+
+  "Use Location": {
+    "prefix": "rr.location",
+    "body": [
+      "const location = useLocation();",
+      "const { ${1:state} } = location.state || {};"
+    ],
+    "description": "Access location state"
+  },
+
+  "Protected Route": {
+    "prefix": "rr.protected",
+    "body": [
+      "if (!${1:isAuthenticated}) {",
+      "  return <Navigate to=\"/login\" replace state={{ from: location }} />;",
+      "}"
+    ],
+    "description": "Protected route guard"
+  },
+
+  "Route Config": {
+    "prefix": "rr.route",
+    "body": [
+      "{",
+      "  path: \"${1:/path}\",",
+      "  element: <${2:Component} />,",
+      "}"
+    ],
+    "description": "Route configuration object"
+  },
+
+  "Lazy Route": {
+    "prefix": "rr.lazy",
+    "body": [
+      "const ${1:Component} = lazy(() => import(\"./${1:Component}\"));"
+    ],
+    "description": "Lazy loaded component"
+  },
+
+  "Outlet": {
+    "prefix": "rr.outlet",
+    "body": ["<Outlet />"],
+    "description": "Nested route outlet"
+  },
+
+  "Search Params": {
+    "prefix": "rr.search",
+    "body": [
+      "const [searchParams, setSearchParams] = useSearchParams();",
+      "const ${1:param} = searchParams.get(\"${1:param}\");"
+    ],
+    "description": "Handle search parameters"
+  },
+
+  "NavLink": {
+    "prefix": "rr.navlink",
+    "body": [
+      "<NavLink",
+      "  to=\"${1:/path}\"",
+      "  className={({ isActive }) =>",
+      "    isActive ? \"${2:active-class}\" : \"${3:inactive-class}\"",
+      "  }",
+      ">",
+      "  $0",
+      "</NavLink>"
+    ],
+    "description": "NavLink with active state"
+  },
+
+  "Router Provider": {
+    "prefix": "rr.provider",
+    "body": [
+      "import { createBrowserRouter, RouterProvider } from \"react-router-dom\";",
+      "",
+      "const router = createBrowserRouter([",
+      "  {",
+      "    path: \"/\",",
+      "    element: <${1:App} />,",
+      "    children: [",
+      "      $0",
+      "    ],",
+      "  },",
+      "]);",
+      "",
+      "root.render(<RouterProvider router={router} />);"
+    ],
+    "description": "Create router provider setup"
+  }
+}

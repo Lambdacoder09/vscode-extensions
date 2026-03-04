@@ -1,0 +1,167 @@
+{
+  "Formik Setup": {
+    "prefix": "fm.setup",
+    "body": [
+      "const formik = useFormik({",
+      "  initialValues: {",
+      "    ${1:field}: \"\",",
+      "  },",
+      "  validationSchema: ${2:validationSchema},",
+      "  onSubmit: (values) => {",
+      "    $0",
+      "  },",
+      "});"
+    ],
+    "description": "Formik hook setup"
+  },
+
+  "Formik Form": {
+    "prefix": "fm.form",
+    "body": [
+      "<form onSubmit={formik.handleSubmit}>",
+      "  $0",
+      "</form>"
+    ],
+    "description": "Formik form wrapper"
+  },
+
+  "Formik Input": {
+    "prefix": "fm.input",
+    "body": [
+      "<div>",
+      "  <label htmlFor=\"${1:field}\">${2:Label}</label>",
+      "  <input",
+      "    id=\"${1:field}\"",
+      "    name=\"${1:field}\"",
+      "    type=\"${3:text}\"",
+      "    onChange={formik.handleChange}",
+      "    onBlur={formik.handleBlur}",
+      "    value={formik.values.${1:field}}",
+      "    className=\"${4}\"",
+      "  />",
+      "  {formik.touched.${1:field} && formik.errors.${1:field} && (",
+      "    <div className=\"error\">{formik.errors.${1:field}}</div>",
+      "  )}",
+      "</div>"
+    ],
+    "description": "Formik input field with validation"
+  },
+
+  "Formik Textarea": {
+    "prefix": "fm.textarea",
+    "body": [
+      "<textarea",
+      "  name=\"${1:field}\"",
+      "  onChange={formik.handleChange}",
+      "  onBlur={formik.handleBlur}",
+      "  value={formik.values.${1:field}}",
+      "  className=\"${2}\"",
+      "/>",
+      "{formik.touched.${1:field} && formik.errors.${1:field} && (",
+      "  <div className=\"error\">{formik.errors.${1:field}}</div>",
+      ")}"
+    ],
+    "description": "Formik textarea"
+  },
+
+  "Formik Select": {
+    "prefix": "fm.select",
+    "body": [
+      "<select",
+      "  name=\"${1:field}\"",
+      "  onChange={formik.handleChange}",
+      "  onBlur={formik.handleBlur}",
+      "  value={formik.values.${1:field}}",
+      ">",
+      "  <option value=\"\">Select...</option>",
+      "  $0",
+      "</select>"
+    ],
+    "description": "Formik select dropdown"
+  },
+
+  "Formik Checkbox": {
+    "prefix": "fm.checkbox",
+    "body": [
+      "<input",
+      "  name=\"${1:field}\"",
+      "  type=\"checkbox\"",
+      "  onChange={formik.handleChange}",
+      "  checked={formik.values.${1:field}}",
+      "/>"
+    ],
+    "description": "Formik checkbox"
+  },
+
+  "Formik Error": {
+    "prefix": "fm.error",
+    "body": [
+      "{formik.touched.${1:field} && formik.errors.${1:field} && (",
+      "  <div className=\"text-red-500 text-sm\">{formik.errors.${1:field}}</div>",
+      ")}"
+    ],
+    "description": "Display Formik error message"
+  },
+
+  "Formik Field Array": {
+    "prefix": "fm.array",
+    "body": [
+      "<FieldArray name=\"${1:items}\">",
+      "  {({ push, remove }) => (",
+      "    <div>",
+      "      {formik.values.${1:items}.map((item, index) => (",
+      "        <div key={index}>",
+      "          $0",
+      "          <button type=\"button\" onClick={() => remove(index)}>",
+      "            Remove",
+      "          </button>",
+      "        </div>",
+      "      ))}",
+      "      <button type=\"button\" onClick={() => push(\"\")}>",
+      "        Add Item",
+      "      </button>",
+      "    </div>",
+      "  )}",
+      "</FieldArray>"
+    ],
+    "description": "Formik dynamic field array"
+  },
+
+  "Formik Submit Button": {
+    "prefix": "fm.submit",
+    "body": [
+      "<button",
+      "  type=\"submit\"",
+      "  disabled={formik.isSubmitting}",
+      "  className=\"${1}\"",
+      ">",
+      "  {formik.isSubmitting ? \"Loading...\" : \"${2:Submit}\"}",
+      "</button>"
+    ],
+    "description": "Formik submit button with loading state"
+  },
+
+  "Formik Reset": {
+    "prefix": "fm.reset",
+    "body": ["<button type=\"button\" onClick={formik.resetForm}>Reset</button>"],
+    "description": "Formik reset button"
+  },
+
+  "Formik Dirty Check": {
+    "prefix": "fm.dirty",
+    "body": ["const isDirty = formik.dirty && formik.isValid;"],
+    "description": "Check if form is dirty and valid"
+  },
+
+  "Formik Set Value": {
+    "prefix": "fm.set",
+    "body": ["formik.setFieldValue(\"${1:field}\", ${2:value});"],
+    "description": "Programmatically set field value"
+  },
+
+  "Formik Touch": {
+    "prefix": "fm.touch",
+    "body": ["formik.setFieldTouched(\"${1:field}\", true);"],
+    "description": "Programmatically touch field"
+  }
+}

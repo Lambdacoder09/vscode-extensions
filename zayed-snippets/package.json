@@ -1,0 +1,54 @@
+﻿{
+  "name": "zayed-dev-snippets",
+  "displayName": "Zayed Dev Snippets",
+  "description": "Professional snippets for React, TypeScript, Tailwind, Formik, Yup, React Router and Storybook.",
+  "version": "1.0.0",
+  "publisher": "zayed",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Snippets"],
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwind",
+    "formik",
+    "yup",
+    "react-router",
+    "storybook",
+    "snippets"
+  ],
+  "icon": "icon.png",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescriptreact.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/tailwind.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/reactrouter.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/formik.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/yup.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/storybook.code-snippets"
+      }
+    ]
+  }
+}
