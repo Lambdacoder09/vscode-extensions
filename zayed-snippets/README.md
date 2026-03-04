@@ -37,8 +37,10 @@ Professional VS Code snippets for:
 
 ---
 
-## 🔥 Example Snippets
-
-### React Arrow Function
-
-Prefix:
+Prefix,Technology,File
+`ts.`,TypeScript,`typescript.json`
+`tw.`,Tailwind CSS,`tailwind.json` (Global)
+`rr.`,React Router,`reactrouter.json` (Global)
+`fm.`,Formik,`formik.json` (Global)
+`yp.`,Yup,`yup.json` (Global)
+`rsb.`,React Storybook,`storybook.json` (Global)
