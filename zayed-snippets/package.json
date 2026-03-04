@@ -4,10 +4,13 @@
   "description": "Professional snippets for React, TypeScript, Tailwind, Formik, Yup, React Router and Storybook.",
   "version": "1.0.0",
   "publisher": "zayed",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.60.0"
   },
-  "categories": ["Snippets"],
+  "categories": [
+    "Snippets"
+  ],
   "keywords": [
     "react",
     "typescript",
@@ -19,6 +22,10 @@
     "snippets"
   ],
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lambdacoder09/vscode-extensions.git"
+  },
   "contributes": {
     "snippets": [
       {

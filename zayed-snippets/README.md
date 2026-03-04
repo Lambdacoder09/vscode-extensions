@@ -3,16 +3,42 @@
 A powerful snippet collection for modern React development.
 
 ## Prefixes
+# Zayed Dev Snippets 🚀
 
-| Prefix | Technology |
-|--------|-----------|
-| `ts.` | TypeScript |
-| `tw.` | Tailwind CSS |
-| `rr.` | React Router |
-| `fm.` | Formik |
-| `yp.` | Yup |
-| `rsb.` | Storybook |
+Professional VS Code snippets for:
 
-## Installation
+- React (TSX)
+- TypeScript
+- Tailwind CSS
+- React Router
+- Formik
+- Yup
+- Storybook
 
-Install from VSIX or copy to `.vscode/extensions/`
+---
+
+## ✨ Features
+
+⚡ Fast boilerplate for modern React apps  
+⚡ Clean TypeScript patterns  
+⚡ Form validation templates (Formik + Yup)  
+⚡ Tailwind utility snippets  
+⚡ React Router setup snippets  
+⚡ Storybook component templates  
+
+---
+
+## 📦 Installation
+
+1. Open VS Code
+2. Go to Extensions
+3. Search: **Zayed Dev Snippets**
+4. Click Install
+
+---
+
+## 🔥 Example Snippets
+
+### React Arrow Function
+
+Prefix:
